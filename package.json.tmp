@@ -1,0 +1,37 @@
+{
+  "name": "scrapper-back",
+  "version": "1.0.0",
+  "description": "Web scraper для сбора данных с каталогов",
+  "main": "dist/index.js",
+  "scripts": {
+    "scrape": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "test": "tsx src/test-scraper.ts",
+    "db:setup": "./setup-db.sh",
+    "db:start": "docker-compose up -d",
+    "db:stop": "docker-compose down",
+    "db:logs": "docker-compose logs -f postgres",
+    "prisma:studio": "npx prisma studio",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:reset": "npx prisma migrate reset"
+  },
+  "keywords": ["scraper", "web-scraping", "prisma", "postgresql"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^25.0.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.1",
+    "axios": "^1.13.2",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3",
+    "prisma": "^6.19.1"
+  }
+}
+

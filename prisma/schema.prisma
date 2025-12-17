@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Модель для хранения ссылок на каталоги
+model CatalogLink {
+  id        String   @id @default(uuid())
+  url       String   @unique
+  brand     String   @default("adidas") // Название бренда/сайта (например: adidas, nike, puma)
+  scrapped  Boolean  @default(false)
+  isSale    Boolean  @default(false) // true если это ссылка на распродажу
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
